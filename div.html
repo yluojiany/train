@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用div布局</title>
+    <style>
+     body {
+         margin: 0;
+     }
+     table {
+         width: 100%;
+         min-height: 100;
+     }
+     #left ul {
+         list-style-type: none;
+         padding:0 ;
+
+     }
+     #left ul>li {
+         border-bottom: 1px solid black;
+     }
+
+     #left ul>li a{
+         text-decoration: none;
+         display: inline-block;
+         padding: 8px;
+         width: 100%;
+         box-sizing: border-box;
+     }
+     #left ul>li a:hover {
+        background-color: coral;
+     }
+     #header {
+         height: 64px;
+         padding:16px;
+         text-align: center;
+         background-color: burlywood;
+        
+        
+     }
+     #header h1 {
+         margin: 0;
+     }
+     #left {
+         display: inline-block;
+         width: 15%;
+         background-color: lemonchiffon;
+
+     }
+     #right {
+         display: inline-block;
+         width: 65%;
+     }
+     #footer {
+         text-align: center;
+         padding:18px;
+         background-color: rgb(183, 226, 128);
+     }
+     .center {
+         text-align: center;
+     } 
+     .price::before{
+         content: '$';
+     }
+     h1{
+         display: inline-block;
+     }
+     
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+     <div id="header">
+        <h1 style="font-size:48px ;"><img src="images/outu.png"style="height:48px;vertical-align: middle;"/>old⑧食堂</h1>
+    </div>
+    <div>
+
+        <div id="left" style="height: 3500px; vertical-align:top">
+            <ul>
+                <li>
+                    <a href="#slmc">蒜粒米肠</a></li>
+                <li>
+                    <a href="#lmdssl">柠檬大蒜沙拉</a> </li>
+                <li>
+                    <a href="#frhgs">腐乳黄瓜丝</a>
+                    </li>
+                <li>
+                    <a href="#mzxhb">蜜汁小汉堡</a>
+                    </li>
+            </ul>    
+         </div>
+         <div id="right">
+             <div class="center">
+                <img src="images/lao8" >
+             </div>
+             <table border="1" style="width: 50;">
+                 <tr>
+                     <th>菜单</th>
+                     <th>价格</th>
+                 <tr>
+                     <td>蒜粒米肠</td>
+                     <td>
+                        <span class="price">3000</span> 
+                        </td>
+                 </tr>
+                 <tr>
+                     <td>柠檬大蒜沙拉</td>
+                     <td>
+                        <span class="price">1500</span>
+                        </td>
+                 </tr>
+                 <tr>
+                     <td>腐乳黄瓜丝</td>
+                     <td>
+                        <span class="price">2500</span>
+                        </td>
+                 </tr>
+                 <tr>
+                     <td>蜜汁小汉堡</td>
+                     <td>
+                        <span class="price">3800</span>
+                        </td>
+                 </tr>
+             </table>
+
+            <h2 id="slmc"> 蒜粒米肠</h2>
+            <img src="images/mc" >
+                <p><font size="32px">尝</font>
+                    
+                    不到苦辣，你永远不知道酸甜，今天老八给你挑战一把，酸甜苦辣咸
+                    虽然长得不好看，里面装的是米饭，一口米肠一口蒜，简简单单的午饭
+                    都说这东西他很辣，到我嘴里我不怕，臭豆腐配腐乳，美食界中的博主
+                    都说圆葱它很辣，到我嘴里我得盘它,拍完段子不能浪费，往里加几块胡萝卜
+                </p>
+                <h2 id="lmdssl">柠檬大蒜沙拉</h2>
+                <img src="images/nmds.jpg" >
+                <p><font size="32px">吃</font>
+                    俩柠檬整点蒜，简简单单一顿饭，美食界里我老八，今天给你们吃沙拉
+                        不管是香还是臭，到我嘴里就是肉，都说面条吃不饱，就怪配料没放好
+                        臭豆腐香蕉火龙果，美食博主就是我，火鸡面大辣椒，一顿不吃心刺挠
+                        都说这东西他很辣，到我嘴里我不怕，臭豆腐配腐乳，美食界中的博主
+                </p>
+                <h2 id="frhgs">腐乳黄瓜丝</h2>
+                <img src="images/frhg" >
+                <p><font size="32px">臭</font>
+                    豆腐腐乳黄瓜丝，吃到嘴里美滋滋，不吃好的不吃贵的，今天整俩嘎嘣脆的
+                    大声呐喊奥利给，所有东西全下胃，美食界里我老八，今天吃个大扒鸭
+                    要问扒鸭哪里好，扒鸭屁股是块宝，美食界里我老八，今天吃个哈密瓜
+                    往里倒点臭卤虾，万人称我美食家，到了饭点别犯愁，今天我也爆个头
+                </p>
+                <h2 id="mzxhb">蜜汁小汉堡</h2>
+                <img src="images/mzxhb" >
+                <p><font size="32px">一</font>
+                    日三餐没烦恼，就吃老八秘制小汉堡，既实惠还管饱
+                    鸡屁股配大蒜，简简单单一顿饭，一觉醒来有点飘，今天整个六舅（朱老六臭豆腐）拌香蕉
+                    简简单单的夜宵，这样的生活没得挑，我的名字叫老八，在这里祝大家
+                    一顺百顺发发发，奥利给兄弟们，干就完了！(๑•ั็ω•็ั๑)
+                </p>
+            
+                  
+         </div>
+     </div>
+     <div id="footer">该网页来自 &copy;美少女收割者<img src="images/sz.png" style="height:38px;vertical-align: middle;"> <a href="pyy.html" >坚少</a></div>
+    
+</body>
+</html>
