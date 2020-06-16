@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹幕墙</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<style>
+body {
+background-image: url(../images/3li.jpg);
+}
+.header {
+  background-color: #4ba3f5;
+  width: 100%;
+  height: 40px;
+}
+.header span {
+  color: white;
+}
+
+.screen_container{
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px auto;
+    background: rgba(250, 200, 167, 0.5);
+    overflow: hidden;
+}
+.screen_toolbar {
+    width: 700px;
+    margin: 30px auto;
+    text-align: center;
+}
+.abc {
+    width: 600px;
+    height: 50px;
+}
+.footer {
+  background-color: #25a04a;
+  width: 100%;
+  height: 30px;
+  margin: 5px auto;
+  
+}
+.footer p {
+    color: white;  
+}
+button {  
+        /*height: 38px;*/
+        width: 80px;  
+        padding:8px;  
+        background-color: #f38ce2;  
+        border-color: #f3a3cf;  
+        color: #fff;  
+        -moz-border-radius: 20px;  
+        -webkit-border-radius: 20px;  
+        border-radius: 20px;  
+        -khtml-border-radius: 20px; 
+        text-align: center;  
+        vertical-align: middle;  
+        border: 1px solid transparent;  
+        font-weight: 900;  
+        font-size:125%  
+      }  
+</style>
+
+<body>
+    
+    <div style="width: 100%;">
+        <div class="container">
+        <div class="header">
+            
+            <div class="header span">
+              <img src="images/骷髅头万圣节.png" style="vertical-align: middle;" width="23px" alt="" />
+              <span style="vertical-align: middle; font-size:125% "> 坚少的弹幕生成器</span>
+           </div>
+           
+    <div class="screen_container"></div>
+    <div class="screen_toolbar">
+       <input  name="" type="text" style="height: 30px;" 
+       style="background:transparent;border:1px solid #ffffff"
+         id="screenBulletText"
+         type="text"  placeholder="坚少大帅B"> 
+        <button class="send">发射</button>
+        <button class="clear">清屏</button>
+    </div>
+
+    <div class="abc">
+
+    </div>
+    <div class="footer">
+        <div class="footer p">
+         <p style="text-align:center">该网页来自 &copy;美少女收割者 <a href="https://baike.baidu.com/item/彭于晏/305410?fr=aladdin" >坚少 </p>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script >
+    // 弹幕定时器
+var timers = [];
+// 控制弹幕显隐变量
+var isShow = true;
+// 监听发送按钮
+$(".send").on("click", function () {
+    // 创建弹幕
+    var jqueryDom = createScreenbullet($("#screenBulletText").val());
+    // 添加定时任务
+    addInterval(jqueryDom);
+});
+// 监听关闭弹幕按钮
+$(".clear").on("click", function () {
+    if (isShow) {
+        $(".bullet").css("opacity", 0);
+        isShow = false;
+    } else {
+        $(".bullet").css("opacity", 1);
+        isShow = true;
+    }   
+});
+// 新建一个弹幕
+function createScreenbullet(text) {
+    var jqueryDom = $("<div class='bullet'>" + text + "</div>");
+    var fontColor = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random()) + ")";
+    var fontSize = Math.floor((Math.random() + 1) * 24) + "px";
+    var left = $(".screen_container").width() + "px";
+    var top = Math.floor(Math.random() * 400) + "px";
+    top = parseInt(top) > 352 ? "352px" : top;
+    jqueryDom.css({
+        "position": 'absolute',
+       "color": fontColor,
+        "font-size": fontSize,
+        "left": left,
+        "top": top
+    });
+    $(".screen_container").append(jqueryDom);
+    return jqueryDom;
+}
+
+// 为弹幕添加定时任务
+function addInterval(jqueryDom) {
+    var left = jqueryDom.offset().left - $(".screen_container").offset().left;
+    var timer = setInterval(function () {
+        left--;
+        jqueryDom.css("left", left + "px");
+        if (jqueryDom.offset().left + jqueryDom.width() < $(".screen_container").offset().left) {
+            jqueryDom.remove();
+            clearInterval(timer);
+        }
+    }, 10);
+    timers.push(timer);
+}
+</script>
+</html>
